@@ -6,7 +6,7 @@ const MONGO_URL="mongodb://127.0.0.1:27017/wanderlust";
 const Listing = require("./modules/listing");
 const path = require("path");
 const methodOverride = require("method-override");
-app.use(methodOverride('_method'));
+const ejsMate = require("ejs-mate");
 
 
 main()
@@ -23,6 +23,9 @@ app.get("/", (req, res) => {
 });
 app.set("view engine", "ejs");
 app.set("views",path.join(__dirname,"/views"));
+app.use(methodOverride('_method'));
+app.engine("ejs", ejsMate);
+app.use(express.static(path.join(__dirname,"/public")));
 app.use(express.urlencoded({extended:true}));
 
 //index route
