@@ -12,15 +12,16 @@ const listingSchema = new Schema({
     },
     image: {
     filename: { type: String, default: "listingimage" },
-        url: {
-          type: String,
-          default:
-            "https://unsplash.com/photos/snowy-mountain-peak-peeks-through-the-clouds-LTIrGbdmCgk",
-          set: (v) =>
-            v === ""
-              ? "https://unsplash.com/photos/snowy-mountain-peak-peeks-through-the-clouds-LTIrGbdmCgk"
-              : v,
-        }
+  url: {
+  type: String,
+  default:
+    "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+  set: (v) =>
+    v === ""
+      ? "https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+      : v,
+}
+
       },
         price: {
             type: Number,

@@ -1,10 +1,16 @@
-
 body {
     background-color: pink;
     font-family: "Plus Jakarta Sans", sans-serif !important;
     font-optical-sizing: auto !important;
     font-weight: 400 !important; 
     font-style: normal !important;
+    min-height: 100vh;
+    flex-direction: column;
+    display: flex;
+
+}
+.container{
+        flex: 1;
 }
 
 .navbar{
@@ -12,56 +18,43 @@ body {
     background-color: white;
 }
 .navbar .navbar-brand{
-    color: #ff385c;
-    font-size: 2rem;
+    color: #ff385c !important;
+    font-size: 2rem !important;
 }
 .nav-link{
     color: #222222 !important;
 
 }
 
-/* footer */
-.nav-link{
-    color: #222222 !important;
-}
+/* Footer */
 .f-info-links a{
-    text-decoration: none;
-    color: #222222;
-
-}
-.f-info-links{
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-
-}
-.f-info-brand{
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-
-}
-.f-info-socials{
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    font-size: 1.3rem;
-    margin-right: 1.2rem;
+    text-decoration: none !important;
+    color: #222222 !important;
 }
 .f-info-links a:hover{
-    text-decoration: underline;
+    text-decoration: underline !important;
 }
+.f-info-links,.f-info-socials,.f-info-brand{
+    width:100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.f-info-socials i{
+    font-size: 1.2rem !important;
+    align-items: space-evenly !important;
+}
+
 .f-info{
-    text-align: center;
-    height: 8rem;
-    background-color: #ebebeb;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: space-evenly;
-
+    text-align: center !important;
+    height: 8rem !important;
+    background-color: #ebebeb !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: space-evenly !important;
 }
-
 /* Cards */
 
 .card{
@@ -84,4 +77,41 @@ body {
 .card-text p{
     font-weight: 400 !important;
 
+}
+
+.listing-link{
+    text-decoration: none;
+}
+/* .listing-link:hover{
+    text-decoration: none;
+    transform: translateY(3px);
+    color: black;
+} */
+.card-imgg-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+
+}
+.add-btn{
+    color: white !important;
+    border: none !important;
+    background-color: #ff385c   !important;
+}
+.edit-btn {
+  background-color: #ff385c !important;
+  border: none !important;
+}
+.show-img{
+    height: 30vh;
+
+}
+.btns{
+    display: flex;
+}
+.show-card{
+    padding-left: 0 !important;
+    padding-right:0 !important;
 }
