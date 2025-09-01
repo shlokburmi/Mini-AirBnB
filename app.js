@@ -7,15 +7,31 @@ const Listing = require("./modules/listing");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
+require("dotenv").config();
+const PORT = process.env.PORT || 8080;
+
+let isConnected = false;
+async function connectToDB() {
+  if (isConnected) return;
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("MongoDB connected");
+  } catch (err) {
+    console.log("Error connecting to MongoDB:", err);
+  }
+}
+
+connectToDB();
 
 
-main()
-.then (() => {console.log("Connected to MongoDB");})
-.catch((err) => {console.log(err)});
 
-async function main() {
-    await mongoose.connect(MONGO_URL);
-}   
+// main()
+// .then (() => {console.log("Connected to MongoDB");})
+// .catch((err) => {console.log(err)});
+
+// async function main() {
+//     await mongoose.connect(MONGO_URL);
+// }   
 
 
 app.get("/", (req, res) => {
@@ -93,6 +109,6 @@ app.delete("/Listings/:id",async(req,res) =>{
 //     console.log("sample was saved");
 //     res.send("Listing saved");
 // });
-app.listen(8080, () => {
-    console.log('Server is running on http://localhost:8080');
+app.listen(PORT,() => {
+    console.log(`Server is running on port $(PORT)`);
 });
