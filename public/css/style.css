@@ -26,6 +26,10 @@ body {
 
 }
 
+.navbar-collapse{
+    background-color: white !important;
+}
+
 /* Footer */
 .f-info-links a{
     text-decoration: none !important;
