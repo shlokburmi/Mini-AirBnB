@@ -4,7 +4,7 @@
     <div class="col-8 offset-2">
       <br />
       <h3>Edit your Listing</h3>
-      <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
+      <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" class="needs-validation">
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
           <input
@@ -12,14 +12,18 @@
             name="listing[title]"
             value="<%= listing.title %>"
             type="text"
+            required
           />
+          <div class="invalid-feedback">Please enter a Title.</div>
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>
-          <textarea class="form-control" name="listing[description]">
+          <textarea class="form-control" name="listing[description]" required>
 <%= listing.description %></textarea
           >
+          <div class="invalid-feedback">Please enter a Description.</div>
         </div>
+
         <div class="mb-3">
           <label for="image" class="form-label">Image Link</label>
           <input
@@ -27,7 +31,9 @@
             name="listing[image][url]"
             value="<%= listing.image.url %>"
             type="text"
+            required
           />
+          <div class="invalid-feedback">Please enter Link.</div>
         </div>
         <div class="row">
           <div class="mb-3 col-md-4">
@@ -37,7 +43,9 @@
               name="listing[price]"
               value="<%= listing.price %>"
               type="number"
+              required
             />
+            <div class="invalid-feedback">Please enter a Price.</div>
           </div>
           <div class="mb-3 col-md-8">
             <label for="location" class="form-label">Location</label>
@@ -45,8 +53,10 @@
               class="form-control"
               name="listing[location]"
               value="<%= listing.location %>"
-              type="text"
+              type="text" 
+              required
             />
+            <div class="invalid-feedback">Please enter a Location.</div>
           </div>
         </div>
 
@@ -57,7 +67,9 @@
             name="listing[country]"
             value="<%= listing.country %>"
             type="text"
+            required
           />
+          <div class="invalid-feedback">Please enter a Country.</div>
         </div>
 
         <button class="btn btn-dark edit-btn mt-4">Edit</button>

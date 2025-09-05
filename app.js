@@ -6,6 +6,7 @@
     const methodOverride = require("method-override");
     const ejsMate = require("ejs-mate");
     require("dotenv").config();
+   const wrapAsync=require("./utils/wrapAsync.js");
 
     const PORT = process.env.PORT || 8080;
 
@@ -58,12 +59,17 @@
     res.render("listings/show.ejs", { listing });
     });
 
+
+
     // Create Route
-    app.post("/listings", async (req, res) => {
+    app.post(
+  "/listings",
+  wrapAsync(async (req, res, next) => {
     const newListing = new Listing(req.body.listing);
     await newListing.save();
     res.redirect("/listings");
-    });
+  })
+);
 
     // Edit Route
     app.get("/listings/:id/edit", async (req, res) => {
@@ -86,3 +92,6 @@
     res.redirect("/listings");
     });
 
+app.use((err, req, res, next) => {
+  res.send("Something went Wrong!");
+});
