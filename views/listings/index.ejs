@@ -1,6 +1,7 @@
 <%layout('layouts/boilerplate') -%>
 <body>
-    <h3>All Listings</h3>
+    <div class="mt-4"><h3>All Listings</h3></div>
+    
     <!-- <form method="GET" action="/listings/new">
         <button>Create New Listing</button>
     </form> -->
@@ -12,9 +13,10 @@
             <div class="card-img-overlay"></div>
             <div class="card-body">
                 <p class="card-text">
-                    <%= listing.title %> <br>
-                    &#8377;<%= listing.price.toLocaleString("en-IN") %> / night
-                </p>
+    <%= listing.title %> <br>
+    &#8377;<%= listing.price ? Number(listing.price).toLocaleString("en-IN") : "N/A" %> / night
+</p>
+
             </div> 
         </div> 
         </a>

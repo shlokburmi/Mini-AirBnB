@@ -28,7 +28,15 @@ body {
 
 .navbar-collapse{
     background-color: white !important;
+    
 }
+
+@media (max-width: 768px) {
+  .navbar .d-flex {
+    margin-bottom: 1rem;
+  }
+}
+
 
 /* Footer */
 .f-info-links a{
